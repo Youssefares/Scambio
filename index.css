@@ -179,3 +179,23 @@ footer .glyphicon {
   height: 60px;
   width: 60px;
 }
+
+.mybtn{
+  background-color: #26A69A;
+  border-color:#26A69A;
+}
+.mybtn:hover{
+  background-color: #80CBC4;
+  border-color: #80CBC4;
+}
+
+#backLogIn{
+  background-color: #C9DFDB;
+  border-color: #C9DFDB;
+}
+
+.modal-dialog{
+  position: absolute;
+  top: 10%;
+  left: 30%;
+}
