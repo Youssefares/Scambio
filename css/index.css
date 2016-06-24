@@ -17,6 +17,9 @@ h4 {
     font-weight: 400;
     margin-bottom: 30px;
 }
+.catDescrip{
+  color: #818181;
+}
 .jumbotron {
     background-color: #009688;
     color: #fff;
@@ -177,6 +180,11 @@ footer .glyphicon {
 .stuffOffered{
   height: 60px;
   width: 60px;
+}
+
+.category:hover{
+  background-color: #B2DFDB;
+  color: #009688;
 }
 
 .mybtn{
