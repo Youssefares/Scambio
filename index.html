@@ -1,3 +1,4 @@
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <div id="header"></div>
 <script>
@@ -8,16 +9,12 @@
 <div class="jumbotron text-center">
   <h1>Scambio</h1>
   <p>Rent everything and anything.</p>
-  <form class="form-inline">
-    <input type="email" class="form-control" size="50" placeholder="Email Address" required>
-    <br>
-    <br>
-    <input type="password" class="form-control" size="50" placeholder="Password" required>
-    <br>
-    <br>
-    <button type="button" class="btn mybtn">Sign in</button>	&nbsp; 	&nbsp;
-    <button type="button" class="btn mybtn" data-toggle ="modal" data-target="#myModal">New to Scambio?</button>
-  </form>
+  <div id = "whoRU"></div>
+  <script>
+  // if(firebase.auth().currentUser == null){
+    $('#whoRU').load("templates/loginform.html");
+  // }
+  </script>
 </div>
 
 <!-- Container (About Section) -->

@@ -6,7 +6,7 @@
              <div class="row">
                  <div class="col-xs-6">
                      <div id="backLogIn" class="well">
-                         <form id="loginForm" method="POST" novalidate="novalidate">
+                         <form id="loginForm" method="POST" action = "#" novalidate="novalidate">
                              <div class="form-group">
                                  <label for="username" class="control-label">Username</label>
                                  <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
@@ -19,7 +19,7 @@
                              </div>
                              <div class="form-group">
                                  <label for="password" class="control-label">Re-Enter Password</label>
-                                 <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please re-enter your password">
+                                 <input type="password" class="form-control" id="password-conf" name="password" value="" required="" title="Please re-enter your password">
                                  <span class="help-block"></span>
                              </div>
                              <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
@@ -29,6 +29,7 @@
                                  </label>
                                  <p class="help-block">(if this is a private computer)</p>
                              </div>
+                             <div id = "err" style = "color: red; font-size: 78%"> </div>
                              <button type="submit" class="btn btn-success btn-block mybtn">Sign Up</button>
                              <a href="/forgot/" class="btn btn-default btn-block">Review Scambio</a>
                          </form>
@@ -46,3 +47,44 @@
                  </div>
              </div>
          </div>
+         <!-- <script>
+            $(document).ready(function(){
+              $('#loginForm').ready(function(){
+                 $('#loginForm').submit(function(event) {
+                   var email = $('#username').val();
+                   var password = $('#password').val();
+                   firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+                        // Handle Errors here.
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        // ...
+                   });
+                   event.preventDefault();
+                 });
+              });
+            });
+         </script> -->
+         <script src = "./js/jquery.session.js"></script>
+         <script>
+            $(document).ready(function(){
+              $('#loginForm').ready(function(){
+                 $('#loginForm').submit(function(event) {
+                   var email = $('#username').val();
+                   var password = $('#password').val();
+                   var confpassword = $('#password-conf').val();
+                   if(password == confpassword)
+                   firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+                        // Handle Errors here.
+                        document.getElementById('err').innerHTML= error.message;
+                        // ...
+                   });
+                   else{
+                     document.getElementById('err').innerHTML = "Your passwords do not match";
+                   }
+                   if(firebase.auth().currentUser != null) window.location.replace(".");
+                   event.preventDefault();
+
+                 });
+              });
+            });
+         </script>
